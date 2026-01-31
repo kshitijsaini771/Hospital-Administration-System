@@ -82,4 +82,5 @@ This interactive dashboard is made for easy analysis of patient readmission fact
 
 
 ## Author & Contact
-- Name: `Kshitij Saini` / [LinkedIn]([https://www.linkedin.com/in/pratyushpuri](https://www.linkedin.com/in/kshitij-saini-b950b7299?utm_source=share_via&utm_content=profile&utm_medium=member_android))
+- Name: `Kshitij Saini`
+- / [LinkedIn]([https://www.linkedin.com/in/pratyushpuri](https://www.linkedin.com/in/kshitij-saini-b950b7299?utm_source=share_via&utm_content=profile&utm_medium=member_android))
