@@ -1,9 +1,6 @@
 
 # Hospital-Administration-System
 
-<div align="center">
-
-<img src="doctor.webp" alt="drawing" width="500"/>
 
 </div>
 
@@ -66,7 +63,7 @@ This dashboard brings together key metrics to assess and track patient readmissi
 
 This dashboard gives hospital administrators and clinicians a quick view of readmission factors. It supports data-driven choices to improve care continuity and lower unnecessary returns.
 
-![HA](Hospitalexcel.PNG)
+![HA](Hospital.PNG)
 
 ## **How to Use the Readmission Risk Dashboard**
 
@@ -85,5 +82,4 @@ This interactive dashboard is made for easy analysis of patient readmission fact
 
 
 ## Author & Contact
-- Name: `Pratyush Puri`
-- Contact: `pratyushpuri17@gmail.com` / [LinkedIn](https://www.linkedin.com/in/pratyushpuri)
+- Name: `Kshitij Saini` / [LinkedIn]([https://www.linkedin.com/in/pratyushpuri](https://www.linkedin.com/in/kshitij-saini-b950b7299?utm_source=share_via&utm_content=profile&utm_medium=member_android))
