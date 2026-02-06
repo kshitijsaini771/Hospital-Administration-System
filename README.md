@@ -1,54 +1,62 @@
-# Hospital-Administration-System
+# Hospital Readmission Risk Analytics
 
-## Overview
-
-This project examines hospital administrative data to uncover trends and key factors linked to elevated readmission rates. In my role as a data analyst focused on enhancing patient care quality, the study tackles the pressing issue of minimizing avoidable hospital readmissions—thereby supporting more efficient use of healthcare resources and ensuring adherence to regulatory standards.
-
----
-
-## Dataset
-
-This project utilizes a comprehensive hospital administration dataset designed to explore the drivers of patient readmission. The data, available for download from [Kaggle: Hospital Admission Data](https://www.kaggle.com/datasets/shivavashishtha/hospital-admission-data), captures detailed information on patient encounters and clinical workflows. Each record is uniquely identified by `patient_id` and `encounter_id`, ensuring traceability across visits. Demographic variables such as `race`, `gender`, `age`, and `weight` (the latter noted for substantial missingness) provide patient context. Clinical and administrative details include length of stay (`time_in_hospital`), admitting `medical_specialty`, and treatment intensity metrics like `num_lab_procedures`, `num_procedures`, and `num_medications`. The dataset also tracks prior healthcare utilization through counts of outpatient, emergency, and inpatient visits over the past year. Diagnostic information is represented via up to five diagnosis codes (`diag_1` to `diag_5`) and a total `number_diagnoses`. Additionally, 25 anonymized columns (`X1`–`X25`) indicate prescribed medications, supplemented by flags for diabetic medication changes (`change`) and whether diabetes-related drugs were administered (`diabetesMed`). The primary outcome variable, `readmitted`, denotes whether a patient was readmitted within 30 days of discharge. Together, these features enable a multidimensional analysis of clinical, operational, and demographic predictors of hospital readmissions.
+## Problem Statement
+Unplanned 30-day readmissions strain hospital resources, increase costs, and signal gaps in care quality. This project analyzes hospital administration data to **identify key drivers of elevated readmission rates** and surface **actionable insights** that help clinical and administrative teams minimize avoidable readmissions while maintaining regulatory compliance.
 
 ---
 
-## Analysis Outcome
-
-- This study was designed to uncover the primary drivers and recurring patterns behind 30-day patient readmissions, examining influences across demographic, clinical, and operational dimensions.
-
-- **Demographic Insights:** Assessed how variables such as **age, gender, and race** correlate with readmission likelihood, helping identify potential inequities in health outcomes or care delivery.
-
-- **Clinical & Treatment Indicators:** Investigated whether factors like **hospital stay duration**, **admitting specialty**, **volume of lab tests performed**, and **number of prescribed medications** significantly influence readmission risk.
-
-- **Diabetes-Specific Analysis:** Focused on diabetic patients to evaluate how **adjustments in medication regimens** and the use of specific diabetes-related drugs (represented by anonymized fields `X1–X25`) impact readmission rates.
-
-- **Utilization History & Complexity:** Examined whether prior healthcare engagement—such as **outpatient, emergency, or inpatient visits**—and the presence of **multiple concurrent diagnoses** increase the probability of return admissions.
-
-- **Operational & Temporal Patterns:** Analyzed trends in readmission frequency over **time periods (monthly or seasonal)** and evaluated variations linked to **discharge status categories**, where data permitted.
-
-- **Data Integrity & Deep Dives:** Tackled challenges like the prevalence of **missing weight records** and conducted advanced explorations—including **medication prescribing trends by specialty** and interactions between **weight groups and primary diagnoses**.
-
-These findings offer actionable intelligence for designing precision interventions, optimizing staffing and resource deployment, and refining clinical pathways—all aimed at minimizing preventable readmissions and enhancing overall patient care quality.
-
+## Analysis Done
+- Explored a rich **hospital admission dataset** containing demographics, diagnoses, procedures, medications, utilization history, and readmission outcomes (`readmitted` within 30 days).
+- Profiled patients using:
+  - Demographics: **age, gender, race, weight** (with careful handling of missingness).
+  - Clinical intensity: **time_in_hospital, num_lab_procedures, num_procedures, num_medications, number_diagnoses**.
+  - Utilization history: counts of prior **outpatient, emergency, and inpatient visits**.
+- Investigated:
+  - How **age, gender, and race** correlate with readmission risk.
+  - The impact of **length of stay, medical_specialty, and treatment intensity** on likelihood of return.
+  - The relationship between **polypharmacy** (high number of medications) and readmission.
+- Conducted **diabetes-focused analysis**:
+  - Evaluated changes in diabetic medication (`change`) and use of diabetes drugs (`diabetesMed`, `X1–X25`) and their link to readmissions.
+- Addressed data-quality issues:
+  - Managed **missing weight** and other incomplete fields.
+  - Performed deep dives into **medication patterns by specialty** and interactions between **weight bands, diagnoses, and readmission**.
+- Synthesized patterns across demographic, clinical, and operational dimensions to support **targeted interventions** and **risk stratification**.
 
 ---
 
+## Dashboard Overview
+> To use the dashboard, open `Solution.xlsx` and go to the **“Dashboard”** sheet. All interactivity is available on this tab.
 
-## Dashobard
+The Excel dashboard summarizes 30-day readmission performance and key risk factors:
 
-**⚠️ IMPORTANT: To use this dashboard, open the file `Solution.xlsx` and navigate to the “Dashboard” sheet. All interactive elements function only within this tab.**
+- **Headline metrics:**
+  - Total patients: **48,911**
+  - Overall readmission rate: **46.22%**
+  - Average readmission age: **65 years**
+  - Average length of stay: **4.4 days**
+- **Specialty-level insights:**
+  - Readmissions broken down by **medical_specialty**, with higher risk in **Internal Medicine** and **Surgery-General**, and moderate rates in **Cardiology** and **Nephrology**.
+- **Treatment intensity:**
+  - A line chart shows **readmission probability increasing with number of medications**, highlighting polypharmacy as a potential focus area.
+- **Demographic patterns:**
+  - Readmission split by **gender** (slightly higher among females).
+  - Readmission by **race**, with African American patients forming the largest share, followed by Caucasian and other groups.
+- **Clinical complexity:**
+  - A chart on **number of diagnoses** shows significantly higher readmission risk for patients with **10+ comorbidities**.
+- Built for **hospital administrators, quality teams, and clinical leaders** to spot high-risk cohorts, prioritize resources, and design targeted care pathways.
 
-- This dashboard delivers a comprehensive view of 30-day hospital readmission trends across key clinical, demographic, and operational dimensions.
-- Highlights include a **total patient count of 48,911**, an overall **readmission rate of 46.22%**, and an **average readmission age of 65**, with patients staying **4.4 days** on average.
-- Visuals break down readmissions by **medical specialty**, revealing higher rates in Internal Medicine and Surgery-General, while specialties like Cardiology and Nephrology show moderate risk.
-- A line chart illustrates how **readmission likelihood increases with the number of medications prescribed**, indicating polypharmacy as a potential risk factor.
-- Demographic insights compare **readmission by gender** (slightly higher among females) and **by race**, showing African American patients account for 76% of readmissions, followed by Caucasian (19%) and others.
-- The **number of diagnoses** chart reveals that patients with 10+ comorbidities face significantly elevated readmission risk.
-- Designed for hospital administrators and clinical leaders to identify high-risk cohorts, allocate resources strategically, and develop targeted care improvement initiatives.
+![Hospital Readmission Dashboard](Hospital.PNG)
 
+---
 
-![HA](Hospital.PNG)
+## Recommendations
+- **Deploy targeted care plans for high-risk groups:** Focus on older patients, those with **10+ diagnoses**, and specialties with elevated readmission rates (e.g., Internal Medicine, Surgery-General).
+- **Manage polypharmacy proactively:** Implement medication reconciliation, pharmacist reviews, and deprescribing strategies for patients on a high number of medications.
+- **Strengthen discharge planning:** Provide clear discharge instructions, follow-up appointments, and post-discharge support for patients with complex conditions or frequent prior visits.
+- **Address equity gaps:** Monitor outcomes by **race and gender**, and develop interventions where specific groups show disproportionately higher readmissions.
+- **Build readmission risk monitoring into operations:** Use this dashboard as a recurring review tool in quality meetings to track trends, evaluate interventions, and continuously refine care pathways.
 
-## Author & Contact
-- Name: `Kshitij Saini`
-- / [LinkedIn]([https://www.linkedin.com/in/pratyushpuri](https://www.linkedin.com/in/kshitij-saini-b950b7299?utm_source=share_via&utm_content=profile&utm_medium=member_android))
+---
+
+**Author:** `Kshitij Saini`  
+**LinkedIn:** [Kshitij Saini](https://www.linkedin.com/in/kshitij-saini-b950b7299?utm_source=share_via&utm_content=profile&utm_medium=member_android)
